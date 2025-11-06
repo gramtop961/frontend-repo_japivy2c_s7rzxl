@@ -1,48 +1,76 @@
 import React from 'react';
-import { Cpu, Cloud, Github, Rocket, Server, Boxes, TerminalSquare, Workflow, Database, FlaskConical } from 'lucide-react';
 
-const tools = [
-  { name: 'React', icon: <Rocket className="h-5 w-5" />, tag: '⚛️' },
-  { name: 'Next.js', icon: <Server className="h-5 w-5" />, tag: '▲' },
-  { name: 'Node.js', icon: <TerminalSquare className="h-5 w-5" />, tag: '🟢' },
-  { name: 'Python', icon: <Cpu className="h-5 w-5" />, tag: '🐍' },
-  { name: 'Flask', icon: <FlaskConical className="h-5 w-5" />, tag: '🌶️' },
-  { name: 'Supabase', icon: <Database className="h-5 w-5" />, tag: '⚡' },
-  { name: 'AWS', icon: <Cloud className="h-5 w-5" />, tag: '☁️' },
-  { name: 'GCP', icon: <Cloud className="h-5 w-5" />, tag: '🌩️' },
-  { name: 'Expo', icon: <Boxes className="h-5 w-5" />, tag: '📱' },
-  { name: 'Appwrite', icon: <Server className="h-5 w-5" />, tag: '🔧' },
-  { name: 'Gemini', icon: <Cpu className="h-5 w-5" />, tag: '🤖' },
-  { name: 'GitHub', icon: <Github className="h-5 w-5" />, tag: '🐙' },
-  { name: 'Postman', icon: <Workflow className="h-5 w-5" />, tag: '📮' },
-  { name: 'Juno', icon: <Rocket className="h-5 w-5" />, tag: '🪐' },
-  { name: 'Linux', icon: <TerminalSquare className="h-5 w-5" />, tag: '🐧' },
-  { name: 'Claude', icon: <Cpu className="h-5 w-5" />, tag: '🧠' },
-  { name: 'VS Code', icon: <TerminalSquare className="h-5 w-5" />, tag: '💻' },
-  { name: 'Solana', icon: <Database className="h-5 w-5" />, tag: '☀️' },
-  { name: 'Cursor', icon: <TerminalSquare className="h-5 w-5" />, tag: '🎯' },
-  { name: 'n8n', icon: <Workflow className="h-5 w-5" />, tag: '🔄' },
-  { name: 'MCP Server', icon: <Server className="h-5 w-5" />, tag: '🔗' },
+// A playful, responsive "keyboard" of tools & technologies.
+// The last row replaces the typical Enter key with a prominent "Hire Me" button.
+
+const rows = [
+  [
+    'React', 'Next.js', 'Vite', 'TypeScript', 'JavaScript', 'Tailwind', 'HTML5', 'CSS3', 'Framer Motion', 'Radix UI',
+  ],
+  [
+    'Node.js', 'Express', 'FastAPI', 'Python', 'Flask', 'Django', 'GraphQL', 'REST', 'tRPC', 'WebSockets',
+  ],
+  [
+    'MongoDB', 'PostgreSQL', 'MySQL', 'SQLite', 'Prisma', 'Mongoose', 'Redis', 'Supabase', 'Firebase', 'Drizzle',
+  ],
+  [
+    'AWS', 'GCP', 'Azure', 'Docker', 'Kubernetes', 'Linux', 'Nginx', 'CI/CD', 'Git', 'GitHub Actions',
+  ],
+  [
+    'OpenAI', 'Claude', 'Gemini', 'LangChain', 'LLMs', 'Pinecone', 'Vector DB', 'RAG', 'Hugging Face', 'TensorFlow',
+  ],
 ];
+
+function Key({ label }) {
+  return (
+    <div
+      className="select-none rounded-xl border border-white/10 bg-white/5 px-3 py-3 text-center text-xs font-medium text-white/90 shadow-[inset_0_1px_0_rgba(255,255,255,0.06)] transition hover:-translate-y-0.5 hover:bg-white/10 active:translate-y-0"
+    >
+      {label}
+    </div>
+  );
+}
 
 export default function Tools() {
   return (
     <section className="relative">
       <div className="mx-auto max-w-7xl px-6 py-16">
         <h2 className="mb-8 text-2xl font-semibold tracking-tight text-white md:text-3xl">
-          Tools & Technologies
+          Tools & Technologies — My Keyboard
         </h2>
-        <div className="grid grid-cols-2 gap-3 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5">
-          {tools.map((t) => (
-            <div key={t.name} className="group rounded-xl border border-white/10 bg-white/5 p-4 transition hover:bg-white/10">
-              <div className="mb-2 flex items-center gap-2 text-white">
-                <span className="text-lg">{t.tag}</span>
-                {t.icon}
-              </div>
-              <p className="text-sm font-medium text-white/90">{t.name}</p>
+
+        <div className="space-y-3">
+          {rows.map((row, idx) => (
+            <div key={idx} className="grid grid-cols-2 gap-2 sm:grid-cols-3 md:grid-cols-5 lg:grid-cols-10">
+              {row.map((label) => (
+                <Key key={label} label={label} />
+              ))}
             </div>
           ))}
+
+          {/* Bottom row with a wide "Hire Me" in place of Enter */}
+          <div className="grid grid-cols-2 gap-2 sm:grid-cols-3 md:grid-cols-5 lg:grid-cols-10">
+            <Key label="Zsh" />
+            <Key label="Bash" />
+            <Key label="Zod" />
+            <Key label="Redux" />
+            <Key label="Zustand" />
+            <Key label="Expo" />
+            <Key label="RN" />
+            <Key label="WebRTC" />
+            <Key label="Three.js" />
+            <a
+              href="mailto:amanlabh.work@gmail.com?subject=Hire%20Me%20—%20From%20Portfolio"
+              className="col-span-1 flex select-none items-center justify-center rounded-xl border border-emerald-400/30 bg-emerald-500/20 px-3 py-3 text-center text-sm font-semibold text-emerald-200 shadow-[inset_0_1px_0_rgba(255,255,255,0.06)] transition hover:-translate-y-0.5 hover:bg-emerald-500/30 active:translate-y-0 md:col-span-2 lg:col-span-2"
+            >
+              Hire Me
+            </a>
+          </div>
         </div>
+
+        <p className="mt-6 text-center text-sm text-white/60">
+          Every key above maps to tools I use daily. Looking for a builder who ships fast and clean? Hit “Hire Me”.
+        </p>
       </div>
     </section>
   );

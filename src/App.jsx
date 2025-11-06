@@ -3,6 +3,7 @@ import Hero from './components/Hero';
 import Tools from './components/Tools';
 import Experience from './components/Experience';
 import Projects from './components/Projects';
+import Certification from './components/Certification';
 
 function App() {
   return (
@@ -11,6 +12,7 @@ function App() {
       <Tools />
       <Experience />
       <Projects />
+      <Certification />
       <footer className="border-t border-white/10">
         <div className="mx-auto max-w-7xl px-6 py-10">
           <div className="flex flex-col items-center justify-between gap-4 text-center sm:flex-row sm:text-left">
